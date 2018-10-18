@@ -23,6 +23,39 @@
 
         }
 
+        /**
+         * Insere Produto
+         */
+        public function insert_product(){
+            
+            $data = array(
+                'title' => $this->input->post('title'),
+                'description' => $this->input->post('description')
+            );
+
+            return $this->db->insert('products', $data);
+
+        }
+
+        /**
+         * Altera Produto
+         */
+        public function update_product($id){
+            
+            $data = array(           
+                'title' => $this->input->post('title'),
+                'description' => $this->input->post('description')
+            );
+
+            if(is_null($id) || $id == 0){
+                return $this->db->insert('products', $data);
+            }else{
+                $this->db->where('id', $id);
+                return $this->db->update('products', $data);
+            }
+
+        }        
+
     }
 
 ?>
