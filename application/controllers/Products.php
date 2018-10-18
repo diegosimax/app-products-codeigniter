@@ -28,7 +28,7 @@
             $data['data'] = $products->get_products();
             $this->load->view('includes/header');
             $this->load->view('products/list', $data);
-            $this->load->view('includes/footer');
+            $this->load->view('includes/footer');            
         }
 
         /**
